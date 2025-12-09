@@ -100,6 +100,3 @@ A aplicação utiliza o `localStorage` do browser para persistir:
 *   **Filtragem no Cliente:** Optou-se por carregar todos os dados (`/all`) e filtrar no cliente. Dado que o payload total é razoável (~250 países), isto permite uma pesquisa e ordenação instantâneas sem latência de rede a cada interação.
 *   **AbortController:** Implementado no hook `useCountries` para cancelar pedidos pendentes se o componente for desmontado ou se um novo pedido for iniciado rapidamente, evitando "race conditions".
 *   **Neumorfismo:** O estilo visual foi escolhido para demonstrar capacidade de personalização avançada com Tailwind CSS, fugindo ao design "Material" ou "Flat" padrão.
-
----
-Desenvolvido por **Manus AI**
