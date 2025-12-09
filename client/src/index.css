@@ -1,0 +1,185 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  
+  --color-border: var(--border);
+  --color-input: var(--input);
+  
+  --shadow-neu-flat: var(--shadow-neu-flat);
+  --shadow-neu-pressed: var(--shadow-neu-pressed);
+  --shadow-neu-icon: var(--shadow-neu-icon);
+}
+
+:root {
+  /* Base Colors - Soft Off-White */
+  --background: #E0E5EC;
+  --foreground: #4A5568;
+  
+  /* Primary - Ocean Blue */
+  --primary: #0077BE;
+  --primary-foreground: #FFFFFF;
+  
+  /* Accent - Terracotta */
+  --accent: #E2725B;
+  --accent-foreground: #FFFFFF;
+  
+  /* Muted */
+  --muted: #A3B1C6;
+  --muted-foreground: #718096;
+  
+  /* Card */
+  --card: #E0E5EC;
+  --card-foreground: #4A5568;
+  
+  /* Borders & Inputs */
+  --border: #D1D9E6;
+  --input: #E0E5EC;
+  
+  /* Neumorphic Shadows */
+  --shadow-neu-flat: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5);
+  --shadow-neu-pressed: inset 6px 6px 10px 0 rgba(163,177,198, 0.7), inset -6px -6px 10px 0 rgba(255,255,255, 0.8);
+  --shadow-neu-icon: 5px 5px 10px rgb(163,177,198,0.6), -5px -5px 10px rgba(255,255,255, 0.5);
+}
+
+.dark {
+  /* Dark Mode - Deep Blue Grey */
+  --background: #2D3748;
+  --foreground: #E2E8F0;
+  
+  --primary: #3182CE;
+  --primary-foreground: #FFFFFF;
+  
+  --accent: #ED8936;
+  --accent-foreground: #FFFFFF;
+  
+  --muted: #4A5568;
+  --muted-foreground: #A0AEC0;
+  
+  --card: #2D3748;
+  --card-foreground: #E2E8F0;
+  
+  --border: #4A5568;
+  --input: #2D3748;
+  
+  /* Dark Neumorphic Shadows */
+  --shadow-neu-flat: 5px 5px 10px #1a202c, -5px -5px 10px #404b5f;
+  --shadow-neu-pressed: inset 5px 5px 10px #1a202c, inset -5px -5px 10px #404b5f;
+  --shadow-neu-icon: 3px 3px 6px #1a202c, -3px -3px 6px #404b5f;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-none;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .neu-flat {
+    background-color: var(--background);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-neu-flat);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 300ms;
+  }
+  
+  .neu-pressed {
+    background-color: var(--background);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-neu-pressed);
+    border: none;
+  }
+  
+  .neu-btn {
+    background-color: var(--background);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-neu-flat);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 300ms;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    color: var(--primary);
+  }
+  .neu-btn:active {
+    box-shadow: var(--shadow-neu-pressed);
+    transform: scale(0.95);
+  }
+  .neu-btn:hover {
+    transform: translateY(-0.125rem);
+  }
+  
+  .neu-icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    background-color: var(--background);
+    box-shadow: var(--shadow-neu-icon);
+    color: var(--primary);
+    transition: all 200ms;
+  }
+  .neu-icon-btn:active {
+    box-shadow: var(--shadow-neu-pressed);
+    transform: scale(0.95);
+  }
+
+  .neu-input {
+    background-color: var(--background);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-neu-pressed);
+    border: none;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: transparent;
+    outline: none;
+    transition: all 150ms;
+  }
+  .neu-input:focus {
+    box-shadow: 0 0 0 2px rgba(var(--primary), 0.5);
+  }
+  
+  .container {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+}
