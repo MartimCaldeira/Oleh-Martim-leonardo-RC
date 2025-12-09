@@ -37,7 +37,22 @@ export function useCountries({ search, region, sortField, sortOrder }: UseCountr
       // Using 'all' endpoint and filtering client-side as per requirements for robust client-side handling
       // In a real large-scale app, we might use specific endpoints, but 'all' gives us the flexibility to filter/sort everything client-side
       // as requested in the assignment (client-side pagination/sorting).
-      const response = await fetch('https://restcountries.com/v3.1/all', {
+      // API Requirement Update: The 'all' endpoint now requires the 'fields' parameter to limit response size.
+      // We must request only the fields we actually use in the application.
+      // Reduced fields list to avoid API 400 Bad Request error (limit is strict)
+      const fields = [
+        'name',
+        'cca3',
+        'flags',
+        'region',
+        'population',
+        'area',
+        'capital',
+        'currencies',
+        'languages'
+      ].join(',');
+
+      const response = await fetch(`https://restcountries.com/v3.1/all?fields=${fields}`, {
         signal: controller.signal,
       });
 

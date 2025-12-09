@@ -72,7 +72,7 @@ export function CountryDetailModal({ country, onClose }: CountryDetailModalProps
                 <div>
                   <p className="text-sm font-medium text-muted-foreground">Capital & Região</p>
                   <p className="text-foreground">
-                    {country.capital?.join(', ') || 'N/A'}, {country.region} ({country.subregion})
+                    {country.capital?.join(', ') || 'N/A'}, {country.region} {country.subregion ? `(${country.subregion})` : ''}
                   </p>
                 </div>
               </div>
@@ -131,16 +131,18 @@ export function CountryDetailModal({ country, onClose }: CountryDetailModalProps
               </div>
             )}
             
-            <div className="pt-4 flex gap-4">
-              <a 
-                href={country.maps.googleMaps} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="neu-btn flex-1 text-center text-sm"
-              >
-                Ver no Google Maps
-              </a>
-            </div>
+            {country.maps?.googleMaps && (
+              <div className="pt-4 flex gap-4">
+                <a 
+                  href={country.maps.googleMaps} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="neu-btn flex-1 text-center text-sm"
+                >
+                  Ver no Google Maps
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </div>
