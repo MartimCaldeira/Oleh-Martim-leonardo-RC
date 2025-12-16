@@ -1,6 +1,6 @@
 # REST Countries Explorer
 
-Aplicação web desenvolvida em React para explorar informações sobre países de todo o mundo, utilizando a API REST Countries. Este projeto foi desenvolvido como parte da Tarefa Final (M7), focando-se em boas práticas de desenvolvimento frontend, arquitetura SPA, e UX/UI moderna.
+Aplicação web desenvolvida em React para explorar informações sobre países de todo o mundo, utilizando a API REST Countries. Este projeto foi desenvolvido como parte da Tarefa Final (M7).
 
 ## 🚀 Funcionalidades
 
